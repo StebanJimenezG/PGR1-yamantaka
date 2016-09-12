@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<head>
+  <title>Sociedades</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header id="header">
+
+  <div class="innertube">
+    <br>
+    <%= image_tag "logo.png", :alt => "Logo", :title => "Logo", :width => "280px", :height => "80px" %>
+  </div>
+  <div class="menu_bar">
+    <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html"><span class="icon-credit"></span>Venta</a></li>
+      <li><a href="http://localhost:3000/menuSociedades"><span class="icon-users"></span>Sociedades</a></li>
+      <li><a href="#two"><span class="icon-open-book"></span>Cursos</a></li>
+      <li><a href="#three"><span class="icon-shopping-cart"></span>Productos</a></li>
+      <li><a href="#fourth"><span class="icon-emoji-happy"></span>Donaciones</a></li>
+      <li><a href="http://localhost:3000/clients"><span class="icon-user"></span>Clientes</a></li>
+      <li><a href="http://localhost:3000/reportes"><span class="icon-line-graph"></span>Reportes</a></li>
+      <li><a href="http://localhost:3000/categories"><span class="icon-list"></span>Categorías</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+<%= yield %>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="membresia/app/assets/javiscripts/menu.js"></script>
+</body>
+</html>

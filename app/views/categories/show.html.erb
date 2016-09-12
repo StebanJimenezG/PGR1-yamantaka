@@ -1,0 +1,8 @@
+<main>
+  <br>  <br>  <br>  <br>
+  <div align="center"> <h4>Nombre: <%= @category.nombre %><br></h4>
+  <h4>Descripcion: <%= @category.descripcion %></h4>
+<%= link_to 'Editar', edit_category_path(@category) %> |
+<%= link_to 'Atras', categories_path %>
+  </div>
+</main>

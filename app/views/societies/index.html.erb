@@ -1,0 +1,33 @@
+<main>
+
+  <h3 align="center">Sociedades</h3>
+  <table width="1000" border="0" align="center">
+    <thead>
+    <tr>
+      <th>Nombre Sociedad</th>
+      <th>Valor Anual</th>
+      <th>Valor Mensual</th>
+      <th>Valor Dos Contados</th>
+      <th colspan="5"></th>
+    </tr>
+    </thead>
+    <div align="left">
+      <%= link_to image_tag('anadir.jpg', title: 'Nueva sociedad', :width => "30px", :height => "30px" ), new_society_path  %><br>
+      <%= link_to 'Nueva Sociedad', new_society_path %>
+    </div><br>
+    <tbody align="center">
+    <% Society.all.each do |societies| %>
+
+        <td ><%=societies.nombre %></td>
+        <td><%=societies.val_anual%></td>
+        <td><%=societies.val_semestral%></td>
+        <td><%=societies.val_mensual%></td>
+        <td><%= link_to image_tag('ver.png', title: 'Ver'), societies %></td>
+        <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_society_path(societies) %></td>
+        <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), societies, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <tr></tr>
+    <% end %>
+    </tbody>
+  </table>
+</main>
+<%= link_to 'Crear Sociedad', new_society_path %>

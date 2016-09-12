@@ -1,0 +1,77 @@
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main>
+  <div align="center">
+  <h3>Datos del cliente</h3>
+  <table width="500">
+    <tr>
+
+
+      <td>
+        <h5>Documento: </h5>
+      </td>
+      <td>
+        <%= @client.tipo_documento %><%= @client.documento %>
+      </td>
+
+      <td>
+        <h5>Nombre: </h5>
+      </td>
+      <td>
+        <%= @client.nombre %>
+      </td>
+
+      <td>
+        <h5>Apellido: </h5>
+      </td>
+      <td>
+        <%= @client.apellido %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h5>País:</h5>
+      </td>
+      <td>
+        <%= @client.pais %>
+      </td>
+      <td>
+        <h5>Ciudad:</h5>
+      </td>
+      <td>
+        <%= @client.ciudad %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h5>Correo electronico:</h5>
+      </td>
+      <td><%= @client.email %></td>
+
+    </tr>
+    <tr>
+      <td>
+        <h5>Dirección:</h5>
+      </td>
+      <td><%= @client.direccion %></td>
+
+      <td>
+      <h5> Teléfono:</h5>
+      </td>
+      <td><%= @client.telefono %></td>
+
+    </tr>
+
+  </table>
+  </div><br>
+
+  <div align="center">
+    <%= link_to "Editar", edit_client_path(@client) %>
+    <%= link_to "Atras", clients_path(@client) %>
+  </div>
+
+</main>
+

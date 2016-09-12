@@ -1,0 +1,41 @@
+
+
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main >
+  <p id="notice"><%= notice %></p>
+
+  <h1 align="center">Recibos</h1>
+<div align="center">
+  <table width="500" align="center">
+    <thead align="center">
+    <tr>
+      <th align="left">Fecha</th>
+      <th align="right">Valor</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @receipts.each do |receipt| %>
+        <tr >
+          <td align="left"><%= receipt.fecha %></td>
+          <td align="right"><%= receipt.valor_total %></td>
+          <td align="right"><%= link_to 'Ver', receipt %></td>
+         <!-- <td align="right"><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
+          <td align="right"><%= link_to 'Destroy', receipt, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+  <br>
+
+  <!--<%= link_to 'New Receipt', new_receipt_path %>-->
+
+</main>

@@ -1,0 +1,80 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>Afiliacion</title>
+
+</head>
+<main>
+  <h1>Afiliación Sociedad</h1>
+<%= form_for @client, :html => {:multipart => true} do |form| %>
+
+    <br><div>
+
+</div>
+    <% @client.errors.full_messages.each do |message| %>
+        <div>
+          * <%= message %>
+        </div>
+    <% end %>
+    <div>
+
+      <%= form.select :tipo_documento, ['C.C', 'T.I', 'C.E'], :prompt => 'Tipo de documento'  %>
+      Numero de documento: <%= form.text_field :documento, placeholder: "Ejm: 1026579546"  %>
+
+    </div><br>
+
+    <div>
+      Nombre: <%= form.text_field :nombre, placeholder: "Ejm: Esteban"  %>
+      Apellido: <%= form.text_field :apellido, placeholder: "Ejm: Cardenas"  %>
+
+    </div><br>
+
+    <div>
+      Teléfono<%= form.number_field :telefono, placeholder: "Ejm: 7542364"  %>
+      Dirección<%= form.text_field :direccion, placeholder: "Ejm: Cll 188 # 34 - 23"  %>
+    </div><br>
+
+    <div>
+      País:<%= form.select :pais, ['Colombia'], :prompt => 'País'  %>
+      Ciudad:<%= form.select :ciudad, ['Armenia','Barranquilla', 'Bogota','Medellin','Cartagena', 'Cali'], :prompt => 'Ciudad'  %>
+    </div><br>
+    <div>
+      Correo electronico: <%= form.email_field :email, placeholder: "esteban@gmail.com"  %>
+    </div><br>
+      <div>
+
+        Tipo de sociedad:<%= form.select(:society_id, @society_options) %>
+
+        Periodicidad de pago:<select name="periodicidad" >
+          <option value="anual">Anual</option>
+          <option value="semestral">Semestral</option>
+          <option value="mensual">Mensual</option>
+
+        </select>
+        Valor sociedad:<input id="valor_pago" name="valor_pago" placeholder="Valor a pagar" type="number"  min="1" >
+      </div>
+      <div>
+
+        Forma de pago:<select name="formaDePago">
+          <%= @formasDePago.each do |forma| %>
+              <option value="<%= forma.id %>"><%= forma.nombre %></option>
+          <% end %>
+        </select>
+        <input id="valor_recibido" name="valor_recibido" placeholder="Valor a recibido" type="number" min="1">
+        <h5><%=  %></h5>
+      </div>
+
+      <div>
+        <h5>Soporte de pago:</h5>
+        <input id="soporte" name="soporte" type="file">
+
+      </div><br>
+    <div>
+
+      <%= form.submit "Guardar" %>
+    </div>
+
+<% end %>
+</main>
+
+

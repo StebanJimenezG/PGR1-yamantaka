@@ -1,0 +1,33 @@
+<div align="center">
+  <h4>Sociedad <%= @society.nombre %> </h4>
+<%= form_for(@society) do |f| %>
+          <div align="center">
+        <%= f.text_field :nombre, placeholder: "Nombre", :required=>true  %>
+      </div>
+      <div align="center">
+        <%= f.text_area :descripcion, placeholder: "Descripción",cols:"40"  %>
+      </div >
+      <div align="center">
+        <%= f.number_field :val_anual, placeholder: "Valor Anual"  %>
+        <%= f.number_field :val_semestral, placeholder: "Valor Semestral"  %>
+        <%= f.number_field :val_mensual, placeholder: "Valor Mensual"  %>
+      </div><br>
+        <div align="center">
+      <%= link_to_add_association 'Añadir descuento', f,:discounts,
+                                  'data-association-insertion-node' => "#discounts-category ol",
+                                  'data-association-insertion-method' => "append",
+                                  :wrap_object => Proc.new {|discount| discount.build_category; discount }%>
+      <hr/>
+      <fieldset id="discounts-category">
+        <ol>
+          <%= f.fields_for :discounts do |discount| %>
+              <%= render partial: "discount_fields", locals: {f:discount} %>
+          <%end%>
+        </ol>
+      </fieldset>
+   </div>
+      <div class="actions">
+        <%= f.submit "Guardar"%>
+      </div>
+  <% end %>
+</div>

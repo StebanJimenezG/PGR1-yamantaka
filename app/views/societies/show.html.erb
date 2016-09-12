@@ -1,0 +1,40 @@
+<main>
+  <br><br>
+  <div align="center">
+    <h4>Sociedad <%= @society.nombre %></h4>
+    <%= @society.descripcion %>
+  </div>
+
+  <div align="center">
+    <table align="center", width="500">
+      <tr>
+        <td><h4>Precio Anual</h4></td>
+        <td><h4>Precio Semestral</h4></td>
+        <td><h4>Precio Mensual</h4></td>
+      </tr>
+      <tr>
+        <td>$<%= @society.val_anual %></td>
+        <td>$<%= @society.val_semestral%></td>
+        <td>$<%= @society.val_mensual%></td>
+      </tr>
+    </table>
+  </div>
+
+  <div align="center" >
+    <table width="500" >
+      <tr>
+        <td><h4>Categoría</h4></td>
+        <td> <h4>Descuento</h4></td>
+      </tr>
+      <tr><td> <% @society.categories.each do |category|%>
+            <h5><%= link_to category.nombre, category %></h5><% end %></td>
+        <td > <% @society.discounts.each do |discount|%>
+              <h5 ><%= discount.discount_porcentaje%></h5><% end %></td>
+      </tr>
+    </table>
+  </div>
+  <div align="center">
+    <%= link_to "Editar", edit_society_path(@society) %>
+    <%= link_to "Atras", societies_path(@society) %>
+  </div>
+</main>

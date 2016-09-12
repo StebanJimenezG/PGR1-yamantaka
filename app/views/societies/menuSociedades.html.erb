@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociedades</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/stylemenu.css"/>
+  <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/index.css"/>
+
+</head>
+<body>
+<main>
+  <div class="content">
+    <div class="inner">
+
+      <center>  <h2>Sociedades </h2>
+        <div class="btn-group" role="group">
+          <p><br>
+            <br/>
+          </p>
+        </div>
+        <table width="600" border="0" align="center">
+          <tbody>
+          <tr>
+
+            <td><%= link_to image_tag('afiliate.jpg', title: 'afiliar', :width => "150px", :height => "150px" ),'membership'  %><br>Afiliación a Sociedad</td>
+            <td><%= link_to image_tag('pago.jpg', title: 'pago de cuota', :width => "150px", :height => "150px" ), societies_path %><br>Pago de Cuota Sociedad</td>
+          </tr>
+          <tr>
+            <td><%= link_to image_tag('reporte.png', title: 'reporte', :width => "150px", :height => "150px" ), 'reportes' %><br> Reportes</td>
+            <td><%= link_to image_tag('crudMem.png', title: 'Sociedades', :width => "150px", :height => "150px" ), societies_path %><br>Gestión de Sociedades></td>
+
+          </tr>
+          </tbody>
+        </table>
+
+        <label><br>
+        </label>
+
+      </center>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<head>
+    <meta charset="UTF-8">
+    <title>Reportes</title>
+</head>
+<body>
+</body>
+<main>
+<h1>Sociedades</h1>
+<%= pie_chart Society.group(:nombre).count %>
+<br><h1>Categorias</h1>
+<%= pie_chart Category.group(:nombre).count %>
+
+<br><h1>Clientes</h1>
+<%= pie_chart Client.group(:nombre).count %>
+</main>
+</html>

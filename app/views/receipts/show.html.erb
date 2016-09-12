@@ -1,0 +1,33 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main>
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Fecha:</strong>
+    <%= @receipt.created_at %>
+
+  </p>
+
+  <p>
+    <strong>Valor</strong>
+    <%= @receipt.valor_total %>
+  </p>
+  <h5><%= @receipt.client_id %></h5>
+  <h5><%= @receipt.society_id %></h5>
+  <div>
+    <%= image_tag @receipt.soporte.url() %>
+  </div>
+
+
+
+   |
+  <%= link_to 'Back', receipts_path %>
+
+
+
+</main>

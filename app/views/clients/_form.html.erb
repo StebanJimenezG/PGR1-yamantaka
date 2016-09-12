@@ -1,0 +1,40 @@
+<%= form_for(@client) do |f| %>
+
+    <br><div>
+      <h1><%= name %> Cliente</h1><br>
+    </div>
+    <% @client.errors.full_messages.each do |message| %>
+        <div>
+          * <%= message %>
+        </div>
+    <% end %>
+    <div>
+      <%= f.select :tipo_documento, ['C.C', 'T.I', 'C.E'], :prompt => 'Tipo de documento'  %>
+      <%= f.text_field :documento, placeholder: "Documento"  %>
+
+    </div><br>
+
+    <div>
+      <%= f.text_field :nombre, placeholder: "Nombre"  %>
+      <%= f.text_field :apellido, placeholder: "Apellido"  %>
+
+    </div><br>
+
+    <div>
+      <%= f.text_field :telefono, placeholder: "Teléfono"  %>
+      <%= f.text_field :direccion, placeholder: "Dirección"  %>
+    </div><br>
+
+    <div>
+      <%= f.select :pais, ['Colombia'], :prompt => 'País'  %>
+      <%= f.select :ciudad, ['Armenia','Barranquilla', 'Bogota','Medellin','Cartagena', 'Cali'], :prompt => 'Ciudad'  %>
+    </div><br>
+    <div>
+      <%= f.text_field :email, placeholder: "Email"  %>
+    </div><br>
+    <div>
+
+      <%= f.submit "Guardar" %>
+    </div>
+
+<% end %>

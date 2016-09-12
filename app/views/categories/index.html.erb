@@ -1,0 +1,33 @@
+<head>
+  <meta charset="utf-8">
+  <title>Gestion Sociedades</title>
+
+</head>
+<main>
+  <br><br>
+  <table width="800" border="0" align="center">
+    <thead>
+    <tr>
+      <th>Categoría</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <div align="left">
+      <%= link_to image_tag('anadir.jpg', title: 'Nueva categoria', :width => "30px", :height => "30px" ), new_category_path  %><br>
+      <%= link_to 'Nueva Categoria', new_category_path %>
+    </div>
+    <tbody align="center">
+    <% @categories.each do |categories| %>
+
+        <td><%= categories.nombre %></td>
+        <td><%= link_to image_tag('ver.png', title: 'Ver'), categories %></td>
+        <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_category_path(categories) %></td>
+        <td> <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), categories, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <tr></tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+
+</main>
