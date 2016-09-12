@@ -1,6 +1,6 @@
 class SocietiesController < ApplicationController
   before_action :set_society, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_user
   # GET /societies
   # GET /societies.json
   def index
@@ -28,6 +28,7 @@ class SocietiesController < ApplicationController
     @categories=Category.all
     respond_to do |format|
       if @society.save
+        flash[:notice] = "Felicidades has creado una sociedad"
         format.html { redirect_to @society, notice: 'Society was successfully created.' }
         format.json { render :show, status: :created, location: @society }
       else
@@ -42,6 +43,7 @@ class SocietiesController < ApplicationController
   def update
     respond_to do |format|
       if @society.update(society_params)
+        flash[:notice] = "Has actualizado una sociedad"
         format.html { redirect_to @society, notice: 'Society was successfully updated.' }
         format.json { render :show, status: :ok, location: @society }
       else

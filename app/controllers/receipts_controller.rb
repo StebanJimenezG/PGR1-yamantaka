@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
-
+before_action :require_user
   # GET /receipts
   # GET /receipts.json
   def index

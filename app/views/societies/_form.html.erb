@@ -1,4 +1,13 @@
 <div align="center">
+<% if @society.errors.any? %>
+<h2>Has cometido un error los siguientes errores te muestran porque no se ha podido crear</h2>
+<ul>
+ <% @society.errors.full_messages.each do |msg| %>
+ <li><%= msg%></li>
+ <%end %>
+</ul>
+<% end%>
+
   <h4>Sociedad <%= @society.nombre %> </h4>
 <%= form_for(@society) do |f| %>
           <div align="center">

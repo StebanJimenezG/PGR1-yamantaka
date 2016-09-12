@@ -1,4 +1,14 @@
 <div align="center">
+
+<% if @category.errors.any? %>
+<h2>Has cometido un error los siguientes errores te muestran porque no se ha podido crear</h2>
+<ul>
+ <% @category.errors.full_messages.each do |msg| %>
+ <li><%= msg%></li>
+ <%end %>
+</ul>
+<% end%>
+
 <%= form_for(@category) do |f| %>
     <h4>Categoría <%= @category.nombre %> </h4>
   <% if @category.errors.any? %>

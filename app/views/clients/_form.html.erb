@@ -1,4 +1,12 @@
 <%= form_for(@client) do |f| %>
+<% if @client.errors.any? %>
+<h2>Has cometido un error los siguientes errores te muestran porque no se ha podido crear</h2>
+<ul>
+ <% @client.errors.full_messages.each do |msg| %>
+ <li><%= msg%></li>
+ <%end %>
+</ul>
+<% end%>
 
     <br><div>
       <h1><%= name %> Cliente</h1><br>

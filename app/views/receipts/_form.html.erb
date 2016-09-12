@@ -1,4 +1,14 @@
 <%= form_for(@receipt) do |f| %>
+
+<% if @receipt.errors.any? %>
+<h2>Has cometido un error los siguientes errores te muestran porque no se ha podido crear</h2>
+<ul>
+ <% @receipt.errors.full_messages.each do |msg| %>
+ <li><%= msg%></li>
+ <%end %>
+</ul>
+<% end%>
+
   <% if @receipt.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
