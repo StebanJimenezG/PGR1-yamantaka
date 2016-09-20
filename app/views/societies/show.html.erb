@@ -34,7 +34,10 @@
     </table>
   </div>
   <div align="center">
+      <%= link_to "Atras", societies_path(@society) %>
+    <% if logged_in? &&  (@society.user == current_user || current_user.admin?) %>
     <%= link_to "Editar", edit_society_path(@society) %>
-    <%= link_to "Atras", societies_path(@society) %>
+    <% end %>
+
   </div>
 </main>

@@ -1,5 +1,8 @@
 class SocietiesController < ApplicationController
   before_action :set_society, only: [:show, :edit, :update, :destroy]
+
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
  # before_action :require_user, except: [:index, :show]
   # GET /societies
   # GET /societies.json
@@ -73,6 +76,15 @@ def
     def set_society
       @society = Society.find(params[:id])
     end
+
+  def require_same_user
+   if current_user != @society.user and !current_user.admin?
+       flash[:danger] = "solo puedes editar la sociedad que hallas creado"
+        redirect_to root_path
+        
+   end
+
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
   def society_params
