@@ -1,0 +1,12 @@
+<main>
+<h1 align="center" >Bienvenido al perfil de   <%= @user.username %></h1>
+<div class="row">
+    <div class align="center"="col-md-4 col-md-offset-4 center">
+        <%= gravatar_for @user , size: 150 %>
+    </div>
+</div>
+<h4 align="center">sociedades creadas por  <%= @user.username %> </h4>
+<%= render 'societies/society', obj: @user.societies %>
+<h4 align="center">clientes ingresados por <%= @user.username %> </h4>
+<%= render 'clients/client', obj: @user.clients %>
+</main>

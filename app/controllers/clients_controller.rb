@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-before_action :require_user, except: [:index, :show]
+#before_action :require_user, except: [:index, :show]
   #get /categories
   def index
     @clients = Client.all

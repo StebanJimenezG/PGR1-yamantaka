@@ -4,11 +4,11 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :receipts
   after_create :save_receipt
 
-  validates :documento, presence: true , uniqueness: true, length: {minimum: 10, maximum: 50}
+  validates :documento, presence: true , uniqueness: true, length: {minimum: 3, maximum: 50}
   validates :tipo_documento, presence: true
 
   validates :nombre, presence: true ,length: {minimum: 3, maximum: 50}
-  validates :apellido, presence: true, length: {minimum: 10, maximum: 50}
+  validates :apellido, presence: true, length: {minimum: 3, maximum: 50}
 
   validates :telefono, presence: true ,length: {minimum: 3, maximum: 50}
   validates :direccion, presence: true, length: {minimum: 10, maximum: 300}

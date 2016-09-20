@@ -8,7 +8,7 @@ class Society < ActiveRecord::Base
   validates :nombre, presence: true ,length: {minimum: 3, maximum: 50}
   validates :descripcion, presence: true ,length: {minimum: 3, maximum: 300}
   validates :val_anual, presence: true
-  validates :valor_semestral, presence: true
+  validates :val_semestral, presence: true
   #validates :user_id, presence: true
 
 
