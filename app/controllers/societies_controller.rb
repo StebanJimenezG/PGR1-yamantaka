@@ -26,6 +26,7 @@ class SocietiesController < ApplicationController
   def create
     @society = Society.new(society_params)
     @categories=Category.all
+    @society.user = current_user
     respond_to do |format|
       if @society.save
         flash[:notice] = "Felicidades has creado una sociedad"

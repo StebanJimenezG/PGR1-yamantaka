@@ -11,15 +11,18 @@
     </thead>
     <tbody align="center">
     <% obj.each do |societies| %>
-
+       
         <td ><%=societies.nombre %></td>
         <td><%=societies.val_anual%></td>
         <td><%=societies.val_semestral%></td>
         <td><%=societies.val_mensual%></td>
+        <%if logged_in? && current_user == societies.user %>
         <td><%= link_to image_tag('ver.png', title: 'Ver'), societies %></td>
         <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_society_path(societies) %></td>
         <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), societies, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <% end %>
         <tr></tr>
+
     <% end %>
     </tbody>
   </table>

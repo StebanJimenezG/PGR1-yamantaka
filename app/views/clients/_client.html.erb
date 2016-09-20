@@ -15,10 +15,13 @@
         <td><%=clients.apellido%></td>
         <!--<td><%= Society.joins(:nombre).where(id: clients.society_id) %></td>-->
         <td><%= clients.society_id %></td>
+        <%if logged_in? && current_user == clients.user%>
         <td><%= link_to image_tag('ver.png', title: 'Ver'), clients %></td>
         <td><%= link_to image_tag('edit.png', title: 'Editar'), edit_client_path(clients) %></td>
         <td><%= link_to image_tag('eliminar.png', title: 'Eliminar'), clients, method: :delete, data: { confirm: 'Esta seguro de eliminar?' } %></td>
+        <% end %>
         <tr></tr>
+
     <% end %>
     </tbody>
   </table>

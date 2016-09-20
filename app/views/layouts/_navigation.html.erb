@@ -1,0 +1,53 @@
+<% flash.each do |name,msg| %>
+    <ul>
+      <li>
+        <%= msg %>
+      </li>
+    </ul>
+    <% end %>
+<header id="header">
+
+  <div class="innertube">
+    <br>
+    <%= image_tag "logo.png", :alt => "Logo", :title => "Logo", :width => "280px", :height => "80px" %>
+  </div>
+  <div class="menu_bar">
+    <a href="#" class="bt-menu"><span class="icon-menu"></span>Menu</a>
+  </div>
+  <nav>
+  <% if logged_in? %>
+    <ul>
+      <li><a href="index.html"><span class="icon-credit"></span>Venta</a></li>
+      <li><a href="http://localhost:3000/menuSociedades"><span class="icon-users"></span>Sociedades</a></li>
+      <li><a href="#two"><span class="icon-open-book"></span>Cursos</a></li>
+      <li><a href="#three"><span class="icon-shopping-cart"></span>Productos</a></li>
+      <li><a href="#fourth"><span class="icon-emoji-happy"></span>Donaciones</a></li>
+      <li><a href="http://localhost:3000/clients"><span class="icon-user"></span>Clientes</a></li>
+      <li><a href="http://localhost:3000/reportes"><span class="icon-line-graph"></span>Reportes</a></li>
+      <li><a href="http://localhost:3000/categories"><span class="icon-list"></span>Categorías</a></li>
+       <ul class="nav navbar-nav navbar-right">
+
+    
+          <li><%= link_to 'Log out', logout_path, method: :delete %></li>
+          <li class="dropdown">
+          
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tu perfil <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Edita tu  perfil", edit_user_path(current_user)%></li>
+            <li><%= link_to "Ver el perfil", user_path(current_user)%></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        
+            
+        <% else %>
+          <li><%= link_to 'Log in', login_path %></li>
+<% end %>
+    </ul>
+
+
+  </nav>
+</header>

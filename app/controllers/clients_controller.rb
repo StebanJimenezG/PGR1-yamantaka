@@ -16,7 +16,9 @@ class ClientsController < ApplicationController
   #post /categories/
   def create
     #@category = Category.new(codigo: params[:category][:codigo], nombre: params[:category][:nombre], descripcion: params[:category][:descripcion])
+
     @client = Client.new(client_params)
+    @client.user = current_user
     @client.f_pago = params[:formaDePago]
     @client.societyId = params[:society_id]
     @client.valor=params[:valor_pago]
