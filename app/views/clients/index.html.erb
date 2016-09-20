@@ -6,6 +6,9 @@
 <main>
 <h3> Clientes</h3>
   <br><br>
+  <div align="center">
+    <%= will_paginate%>
+</div>
   <%= render 'client',obj:@clients %>
 
   <%= link_to 'Nuevo Cliente', new_client_path %>

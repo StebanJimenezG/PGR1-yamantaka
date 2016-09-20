@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
 #before_action :require_user, except: [:index, :show]
   #get /categories
   def index
-    @clients = Client.all
+    @clients = Client.paginate(page: params[:page], per_page: 5)
   end
   #get /categories/#codigo
   def show

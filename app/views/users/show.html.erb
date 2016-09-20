@@ -5,8 +5,15 @@
         <%= gravatar_for @user , size: 150 %>
     </div>
 </div>
+<div align="center">
+    <%= will_paginate @user_societies %>
+</div>
 <h4 align="center">sociedades creadas por  <%= @user.username %> </h4>
-<%= render 'societies/society', obj: @user.societies %>
+<%= render 'societies/society', obj: @user_societies %>
+
+<div align="center">
+    <%= will_paginate @user_clients %>
+</div>
 <h4 align="center">clientes ingresados por <%= @user.username %> </h4>
-<%= render 'clients/client', obj: @user.clients %>
+<%= render 'clients/client', obj: @user_clients %>
 </main>
